@@ -1,5 +1,9 @@
 // index es el archivo que debemos arrancar para que inicie el servidor
 import app from "./app.js";
+// importa el modulo de coneccion con mongodb
+import { conectDB } from "./db.js";
+
+conectDB();
 
 app.listen(4000);
 
