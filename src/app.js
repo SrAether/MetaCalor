@@ -10,7 +10,11 @@ const app = express();
 
 // muestra en terminal mensajes de las solicitudes que recibe el servidor
 app.use(morgan("dev"));
+
+// middleware para que express convierta las solicitudes a json
+app.use(express.json());
+
 // le indicamos a express que use las rutas del archivo
-app.use(authRoutes);
+app.use("/api", authRoutes);
 
 export default app;

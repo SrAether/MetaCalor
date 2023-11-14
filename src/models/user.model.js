@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true, // esto es para quitar espacios
+    unique: true, // para indicar que cada correo es unico
   },
   password: {
     type: String,
@@ -14,6 +15,7 @@ const userSchema = new mongoose.Schema({
   nickname: {
     type: String,
     required: true,
+    unique: true, 
   },
   age: {
     type: Number,
@@ -41,9 +43,9 @@ const userSchema = new mongoose.Schema({
   profilePictureUrl: {
     type: String,
   },
-  _id: {
-    type: mongoose.Types.ObjectId,
-  },
+  // _id: {
+  //   type: mongoose.Types.ObjectId,
+  // },
   firstName: {
     type: String,
     required: true,
@@ -57,6 +59,8 @@ const userSchema = new mongoose.Schema({
     enum: ["Male", "Female", "Helicoptero apache"],
     required: true,
   },
+},{
+  timestamps: true, // para agregar fecha de creacion y actualizacion
 });
 
 export default mongoose.model("User", userSchema);
