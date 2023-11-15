@@ -91,3 +91,25 @@ export const logout = (req, res) => {
   });
   return res.sendStatus(200);
 };
+
+export const profile = async (req, res) => {
+  const userFound = await User.findById(req.user.id);
+
+  if (!userFound)
+    return res.status(404).json({ message: "Usuario no encontrado" });
+
+  return res.json({
+    id: userFound._id,
+    nickname: userFound.nickname,
+    age: userFound.age,
+    weight: userFound.weight,
+    height: userFound.height,
+    streak: userFound.streak,
+    goal: userFound.goal,
+    physicalActivityLevel: userFound.physicalActivityLevel,
+    profilePictureUrl: userFound.profilePictureUrl,
+    firstName: userFound.firstName,
+    lastName: userFound.lastName,
+    biologicalSex: userFound.biologicalSex,
+  });
+};
