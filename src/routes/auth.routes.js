@@ -9,11 +9,13 @@ import {
 
 // para autentificacion
 import { authRequired } from "../middlewares/validateToken.js";
-
+// para validar
+import { validateSchema } from "../middlewares/validator.middleware.js";
 const router = new Router();
+import { loginSchema, registerSchema } from "../schemas/auth.schema.js";
 
-router.post("/register", register);
-router.post("/login", login);
+router.post("/register", validateSchema(registerSchema), register);
+router.post("/login", validateSchema(loginSchema), login);
 router.post("/logout", logout);
 
 // Profile es una ruta protegida
