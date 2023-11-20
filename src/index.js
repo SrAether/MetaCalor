@@ -6,6 +6,6 @@ import { conectDB } from "./db.js";
 conectDB();
 
 //app.listen(4000);
-app.set('port', process.env.PORT || 4000);
+app.set('port', 4000);
 app.listen(app.get('port'));
 console.log("El servidor esta escuchando en el puerto: ", app.get('port'));
