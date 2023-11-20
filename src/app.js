@@ -6,7 +6,15 @@ import cookieParser from "cookie-parser"; // convierte cookies en objetos json
 import authRoutes from "./routes/auth.routes.js";
 
 
+// para servir el cliente
+import {dirname, join} from "path"; 
+import { fileURLToPath } from "url";
+ 
+
 const app = express();
+
+// para tener en una constante la ruta absoluta del proyecto
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // muestra en terminal mensajes de las solicitudes que recibe el servidor
 app.use(morgan("dev"));
@@ -20,5 +28,7 @@ app.use(cookieParser());
 
 // le indicamos a express que use las rutas del archivo
 app.use("/api", authRoutes);
+
+app.use(express.static(join(__dirname, "../client/dist")));
 
 export default app;
