@@ -15,7 +15,7 @@ const app = express();
 
 // para tener en una constante la ruta absoluta del proyecto
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
+console.log(__dirname);
 // muestra en terminal mensajes de las solicitudes que recibe el servidor
 app.use(morgan("dev"));
 
