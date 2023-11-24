@@ -1,0 +1,75 @@
+
+.titulo{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2em;
+    line-height: 1.1;
+}
+
+.subtitulo{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.4em;
+    line-height: 1.1;
+}
+
+.contenedorMain p{
+    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Nunito Sans', sans-serif; */
+    font-size: 1.1em;
+    line-height: 1.1;
+}
+
+.textoBeforeInputs{
+    font-family: 'Nunito', sans-serif;
+    text-align: left;
+    font-size: 1em;
+}
+
+.formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* gap: 1rem; */
+}
+
+.formulario input{
+    border-radius: 2cap;
+    width: 95%;
+    height: 4vh;
+    background: #352067;
+    outline: none;
+    font-size: 1em;
+}
+
+.buttonIngresar{
+    margin: 1em auto;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 60%;
+    border-radius: 2cap;
+    background: #352067;
+}
+
+.error{
+    color: #da206f;
+    font-weight: 700;
+}
+
+
+
+.opcionesExtra button{
+    /* margin: 1em auto; */
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 60%;
+    border-radius: 2cap;
+    background: #352067;
+}
+
+.opcionesExtra p{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+}

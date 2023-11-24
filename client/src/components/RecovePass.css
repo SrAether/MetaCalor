@@ -1,0 +1,54 @@
+.tittle{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 1000;
+    line-height: 1.1;
+}
+
+.containerMain p{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.1;
+}
+
+.formEmail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em auto;
+}
+
+.formEmail p{
+    text-align: left;
+}
+
+.inputEmail{
+    border-radius: 2cap;
+    width: 95%;
+    height: 4vh;
+    background: #352067;
+    outline: none;
+    font-size: 1em;
+}
+
+.buttonSendEmail{
+    margin: 1em auto;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 60%;
+    border-radius: 2cap;
+    background: #352067;
+}
+
+.Login{
+    margin: 1em auto;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 60%;
+    border-radius: 2cap;
+    background: #352067;
+}

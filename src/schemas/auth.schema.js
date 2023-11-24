@@ -23,9 +23,6 @@ export const registerSchema = z.object({
   height: z.number({
     required_error: "La altura es requerida",
   }),
-  streak: z.number({
-    required_error: "La racha es requerida",
-  }),
   goal: z.number({
     required_error: "El objetivo es requerido",
   }),

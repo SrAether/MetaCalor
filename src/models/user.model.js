@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
   },
   biologicalSex: {
     type: String,
-    enum: ["Male", "Female", "Helicoptero apache"],
+    enum: ["Men", "Women"],
     required: true,
   },
 },{

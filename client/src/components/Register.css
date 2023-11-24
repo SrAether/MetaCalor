@@ -1,0 +1,50 @@
+
+.tituloRegistro{
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 1000;
+}
+
+.containerData{
+    height: 70vh; /* Ajusta la altura según tus necesidades */
+  overflow-y: scroll;
+}
+
+.subtittleData{
+    text-align: left;
+}
+
+.inputData{
+    border-radius: 2cap;
+    width: 95%;
+    height: 4vh;
+    background: #352067;
+    outline: none;
+    font-size: 1em;
+}
+
+.buttonRegister{
+    margin: 1em auto;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 60%;
+    border-radius: 2cap;
+    background: #352067;
+}
+
+.beforeLogin{
+    text-align: center;
+}
+
+.buttonLogin{
+    margin: 1em auto;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 60%;
+    border-radius: 2cap;
+    background: #352067;
+}

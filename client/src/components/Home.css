@@ -1,0 +1,93 @@
+body{
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+button{
+    margin: 1em auto;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 2cap;
+    background: #352067;
+}
+
+.containerMain{
+    background: #e6eae6;
+    width: 85vw;
+    height: 90vh;
+    margin: 1vh auto;
+    padding: 1.2vh;
+    box-sizing: border-box;
+    border-radius: 2.5cap;
+}
+
+.tittles h1, h2{
+    font-weight: 900;
+}
+
+.goals{
+    margin: 1em auto;
+}
+
+.goals p{
+    text-align: left;
+}
+
+.divMainGoal{
+    background: #352067;
+    color: #e6eae6;
+    height: 2em;
+    border-radius: 2cap;
+}
+
+.divMainGoal p{
+    text-align: left;
+    font-size: 1.2em;
+    margin-left: 5vw;
+}
+
+.divKcalConsumidas{
+    background: #352067;
+    color: #e6eae6;
+    height: 2em;
+    border-radius: 2cap;
+    margin-top: 2vh;
+}
+
+.divKcalConsumidas p{
+    text-align: left;
+    font-size: 1.2em;
+    margin-left: 5vw;
+}
+
+h3{
+    color: #da206f;
+}
+
+.divRachaActual{
+    background: #352067;
+    color: #e6eae6;
+    height: 2em;
+    border-radius: 2cap;
+    margin-top: 2vh;
+}
+
+.divRachaActual p{
+    text-align: left;
+    font-size: 1.2em;
+    margin-left: 5vw;
+}
+
+.contactToProffesional{
+    margin: 1em auto;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 2cap;
+    background: #352067;
+}
+
+.buttonLogOut{
+    
+}
