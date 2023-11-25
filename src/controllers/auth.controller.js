@@ -23,6 +23,17 @@ export const register = async (req, res) => {
   } = req.body; // extraemos los datos del req.body
 
   try {
+    const userFoundEmail = await User.findOne({ email });
+    if (userFoundEmail)
+      return res
+        .status(400)
+        .json({ message: ["El correo de usuario ya existe"] });
+    const userFoundNickname = await User.findOne({ nickname });
+    if (userFoundNickname)
+      return res
+        .status(400)
+        .json({ message: ["El apodo de usuario ya existe"] });
+
     const passwordHash = await bcrypt.hash(password, 10);
 
     // creamos un objeto que almacena los datos del usuario

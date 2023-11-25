@@ -7,7 +7,7 @@
 
 .containerData{
     height: 70vh; /* Ajusta la altura según tus necesidades */
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .subtittleData{

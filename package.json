@@ -20,6 +20,8 @@
     "mongodb": "^6.2.0",
     "mongoose": "^8.0.0",
     "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "url": "^0.11.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
