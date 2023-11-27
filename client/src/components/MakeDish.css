@@ -1,0 +1,96 @@
+.divMakeDishMain{
+    width: 35vh;
+    height: 80vh;
+}
+
+.divImgMakeDish{
+
+    width: 76vw;
+}
+
+.imgDish{
+    width: 70%;
+}
+
+.divButtonsAddDish{
+    display: flex;
+    gap: 1em;
+}
+
+.divButtonsAddDish button{
+    background: #fe9e1d;
+    text-transform: none;
+    color: #5e5950;
+    width: 10em;
+    border-radius: 1cap;
+    border: none;
+    
+    
+}
+
+.divButtonCalculate{
+    background: #fefeff;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1cap;
+    width: 20em;
+    height: 8vh;
+}
+
+.divButtonCalculate button{
+    background: #717372;
+    color: #fefeff;
+    border: none;
+    font-size: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 100%;
+}
+
+.divNumberInsideButtonCalculate{
+    color: #555555;
+    font-size: 1.5em;
+    width: 3em;
+}
+
+.addDish{
+    color: #575553;
+    font-weight: 700;
+    margin-top: 0;
+    height: 4em;
+}
+
+.divIngredientsDish{
+    overflow-y: scroll;
+}
+
+.divIngredientsDish p{
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #575456;
+}
+
+.divInsideIngredientsDish{
+    background: #fefeff;
+    display: flex;
+    border-radius: 1cap;
+}
+
+.divInsideIngredientsDish p{
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-left: 5em;
+    margin-top: 1.5em;
+    color: #575456;
+}
+
+.addIngredientDish{
+    background: #fe9e1d;
+    width: 4em;
+    height: 4vh;
+    margin-right: 1em;
+    border: none;
+    color: #5e5950;
+}

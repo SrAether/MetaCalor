@@ -32,6 +32,9 @@ export const registerSchema = z.object({
   profilePictureUrl: z.string({
     required_error: "La foto de perfil es requerida",
   }),
+  publicPictureId: z.string({
+    required_error: "La foto de perfil es requerida",
+  }),
   firstName: z.string({
     required_error: "El nombre es obligatorio",
   }),
@@ -47,6 +50,9 @@ export const registerSchema = z.object({
 export const loginSchema = z.object({
   email: z.string({
     required_error: "El correo de usuario es necesario",
+  })
+  .email({
+    message: "El correo no es un correo valido",
   }),
   password: z.string({
     required_error: "La contraseña de usuario es necesaria",

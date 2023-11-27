@@ -1,0 +1,55 @@
+.globalRankMainDiv{
+    background: #e7eae7;
+    height: 90vh;
+    width: 85vw;
+    border-radius: 2cap;
+}
+
+.headerTable{
+    display: flex;
+    justify-content: space-between;
+}
+
+.userImg{
+    width: 40%;
+    border-radius: 0.5cap;
+}
+
+.insideTable{
+    display: flex;
+    /* justify-content: space-between; */
+    width: 85vw;
+    justify-content: space-between;
+    margin: 1mm auto;
+    border-bottom: 3px solid #342167;
+}
+
+.componentIdTable{
+    width: 2em;
+    font-size: 1.5em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.componentImgTable{
+    width: 20em;
+    justify-content: left;
+}
+
+.componentNameTable{
+    width: 10em;
+}
+
+.componentNameTable p{
+    justify-content: center;
+    align-items: center;
+}
+
+.componentValueTable{
+    width: 10em;
+}
+
+.componentValueTable p{
+    text-align: center;
+}

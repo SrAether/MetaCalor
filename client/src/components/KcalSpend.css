@@ -1,0 +1,13 @@
+.inputCalGastadas{
+    width: 100%;
+    height: 2em;
+}
+
+input{
+    border-radius: 2cap;
+    width: 95%;
+    height: 4vh;
+    background: #352067;
+    outline: none;
+    font-size: 1em;
+}

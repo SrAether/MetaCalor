@@ -21,3 +21,5 @@ router.post("/logout", logout);
 // Profile es una ruta protegida
 router.get("/profile", authRequired, profile);
 export default router;
+
+

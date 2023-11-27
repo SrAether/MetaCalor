@@ -9,6 +9,9 @@ import authRoutes from "./routes/auth.routes.js";
 // para servir el cliente
 import {dirname, join} from "path"; 
 import { fileURLToPath } from "url";
+
+// para guardar archivos (imagenes)
+import fileUpload from "express-fileupload"
  
 
 const app = express();
@@ -36,5 +39,11 @@ app.use(cookieParser());
 app.use("/api", authRoutes);
 
 app.use(express.static(join(__dirname, "../client/dist")));
+
+//imagenes
+app.use(fileUpload({
+    useTempFiles: true,  //subelo al proyecto
+    tempFileDir: "./uploads" //crea la carpeta y guarda el archivo
+}));
 
 export default app;

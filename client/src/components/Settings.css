@@ -1,0 +1,45 @@
+
+.containerSettings{
+    background: #d8d8d9;
+    height: 90vh;
+    border-radius: 2cap;
+}
+
+.insideContainerSettings{
+    height: 80vh; /* Ajusta la altura según tus necesidades */
+  overflow-y: scroll;
+}
+
+h1{
+    font-weight:1000;
+}
+
+.insideContainerSettings .myAccountDiv p{
+    color: #481a51;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.insideContainerSettings .mySettingsDiv p{
+    color: #481a51;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.insideContainerSettings .myHelpDiv p{
+    color: #481a51;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.buttonDiv{
+    text-transform: none;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #3e2a6c;
+    font-weight: 700;
+}

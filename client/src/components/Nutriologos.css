@@ -1,0 +1,33 @@
+
+.component{
+    display: flex;
+    align-items: center;
+    margin: em auto;
+}
+
+.nutriologoImg{
+    width: 25%;
+    height: 25%;
+    border-radius: 100%;
+    
+    
+}
+
+.divDataNutriologo p{
+    text-align: left;
+    margin-left: 0.5em;
+}
+
+.divEmailNutriologo{
+    background: #352067;
+    color: white;
+    width: 15em;
+    border-radius: 2cap;
+    height: 2em;
+}
+
+.divEmailNutriologo p{
+    text-align: left;
+    margin-left: 0.5em;
+    align-items: center;
+}

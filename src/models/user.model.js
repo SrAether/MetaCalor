@@ -40,8 +40,13 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true, // pendiente <<<<<<
   },
-  profilePictureUrl: {
+  profilePictureUrl: { // secure-url
     type: String,
+    required: true,
+  },
+  publicPictureId:{// public_id
+    type: String,
+    required: true,
   },
   // _id: {
   //   type: mongoose.Types.ObjectId,

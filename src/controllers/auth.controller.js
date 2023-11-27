@@ -5,6 +5,10 @@ import bcrypt from "bcryptjs"; // para encriptar la contraseña
 
 import { createAccessToken } from "../libs/jwt.js"; // generador de tokens
 
+import { uploadImage, deleteImage } from "../middlewares/cloudinary.js";
+
+import fs from "fs-extra";
+
 export const register = async (req, res) => {
   const {
     email,
@@ -17,6 +21,7 @@ export const register = async (req, res) => {
     goal,
     physicalActivityLevel,
     profilePictureUrl,
+    publicPictureId, // dato añadido
     firstName,
     lastName,
     biologicalSex,
@@ -25,14 +30,10 @@ export const register = async (req, res) => {
   try {
     const userFoundEmail = await User.findOne({ email });
     if (userFoundEmail)
-      return res
-        .status(400)
-        .json({ message: ["El correo de usuario ya existe"] });
+      return res.status(400).json(["El correo de usuario ya existe"]);
     const userFoundNickname = await User.findOne({ nickname });
     if (userFoundNickname)
-      return res
-        .status(400)
-        .json({ message: ["El apodo de usuario ya existe"] });
+      return res.status(400).json(["El apodo de usuario ya existe"]);
 
     const passwordHash = await bcrypt.hash(password, 10);
 
@@ -47,11 +48,22 @@ export const register = async (req, res) => {
       streak: 0,
       goal,
       physicalActivityLevel,
-      profilePictureUrl,
+      profilePictureUrl : "",
+      publicPictureId: "",
       firstName,
       lastName,
       biologicalSex,
     });
+
+    if (req.files?.image) {
+      const result = await uploadImage(req.files.tempFilePath);
+      newUser.profilePictureUrl = result.secure_url;
+      newUser.profilePictureId = result.public_id;
+    }
+    //eliminar la imagen
+    await fs.unlink(req.files.image.tempFilePath);
+    
+
     const userSaved = await newUser.save(); // guardamos el usuario
 
     // genera una cookie
@@ -75,7 +87,9 @@ export const login = async (req, res) => {
     // verificamos que el email se encuentre en la base de datos
     const userFound = await User.findOne({ email });
     if (!userFound)
-      return res.status(400).json({ message: "Usuario no encontrado" });
+      return res
+        .status(400)
+        .json({ message: "No existe ningun usuario con ese correo" });
     // verificamos que la contraseña coincide
     const isMatch = await bcrypt.compare(password, userFound.password);
     if (!isMatch)

@@ -1,0 +1,26 @@
+.platillos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.platillo{
+    background: #fefeff;
+    width: 45%;
+    height: auto;
+    border-radius: 2cap;
+    margin: 1em auto;
+}
+
+.platilloImg{
+    width: 55%;
+}
+
+.buttonRegisterPlatillo{
+    background: #ff9e1c;
+    color: #5c5750;
+    width: 75%;
+    height: 8%;
+    border-radius: 0.5cap;
+}

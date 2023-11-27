@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import "./Register.css";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export function Register() {
   const {
@@ -10,7 +10,7 @@ export function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signup, isAuthenticated } = useAuth();
+  const { signup, isAuthenticated, errors: RegisterErrors } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export function Register() {
       biologicalSex,
       nickname,
       profilePictureUrl,
+      publicPictureId,
       physicalActivityLevel,
     } = values;
     const VALUES = {
@@ -44,6 +45,7 @@ export function Register() {
       biologicalSex,
       nickname,
       profilePictureUrl,
+      publicPictureId,
       physicalActivityLevel: parseInt(physicalActivityLevel, 10),
     };
     signup(VALUES);
@@ -51,6 +53,13 @@ export function Register() {
 
   return (
     <div className="containerMain">
+      {
+        RegisterErrors.map((error, i) => (
+            <div key={i}>
+              {error}
+            </div>
+          ))
+      }
       <form onSubmit={OnSubmit}>
         <h1 className="tituloRegistro">Registrar</h1>
         <p className="debajoTituloRegistro">Registra tus datos</p>
@@ -183,9 +192,10 @@ export function Register() {
             FOTO DE PEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEFIL
           </p>
           <input
-            type="text"
+            type="file"
             className="inputData"
             placeholder="Tu foto"
+            accept="image/*"
             {...register("profilePictureUrl", { required: true })}
           />
           {
@@ -193,7 +203,18 @@ export function Register() {
               <p>La foto de perfil de usuario es requerida</p>
             )
           }
-
+          <input
+            type="file"
+            className="inputData"
+            placeholder="Tu foto"
+            accept="image/*"
+            {...register("publicPictureId", { required: true })}
+          />
+          {
+            errors.publicPictureId && (
+              <p>La foto de perfil de usuario es requerida</p>
+            )
+          }
           <p className="subtittleData">Nivel de Actividad Fisica</p>
           <select
             {...register("physicalActivityLevel", { required: true })}
@@ -220,7 +241,9 @@ export function Register() {
 
           <div className="footer">
             <p className="beforeLogin">¿Ya tienes cuenta?</p>
-            <button className="buttonLogin">Ingresar</button>
+            <button className="buttonLogin">
+              <Link to="/login">Ingresar</Link>  
+            </button>
           </div>
         </div>
       </form>

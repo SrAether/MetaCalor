@@ -1,0 +1,46 @@
+
+.divVariant p{
+    text-align: left;
+    color: #5c5c5d;
+    font-size: 1.3em;
+}
+
+.variant{
+    background: #fefeff;
+    display: flex;
+    border-radius: 1cap;
+    margin-bottom: 2cap;
+}
+
+.variantImg{
+    width: 25%;
+    margin-left: 1em;
+    margin-right: 0.5em;
+    border-radius: 0.5cap;
+}
+
+.variant p{
+    margin-top: 1em;
+    font-weight: 700;
+    color: #545555;
+    width: 10cap;
+    height: 2cap;
+}
+
+.buttonAddAliments{
+    background: #ff9e1c;
+    color: #5c5750;
+    width: 20%;
+    border-radius: 0.5cap;
+    
+}
+
+.buttonRegisterAliments{
+    background: #ff9e1c;
+    color: #5c5750;
+    width: 70%;
+    height: 6vh;
+    border-radius: 0.5cap;
+    text-transform: none;
+    
+}
