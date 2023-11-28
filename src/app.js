@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser"; // convierte cookies en objetos json
 import cors from "cors"; 
 // importando rutas de autenticación
 import authRoutes from "./routes/auth.routes.js";
+import clientRoutes from "./routes/client.routes.js";
 
 
 // para servir el cliente
@@ -23,6 +24,7 @@ console.log(__dirname);
 app.use(cors(
     {
         origin: "http://localhost:5173",
+        credentials: true,
     }
 ));
 // muestra en terminal mensajes de las solicitudes que recibe el servidor
@@ -37,6 +39,7 @@ app.use(cookieParser());
 
 // le indicamos a express que use las rutas del archivo
 app.use("/api", authRoutes);
+app.use("/api", clientRoutes);
 
 app.use(express.static(join(__dirname, "../client/dist")));
 

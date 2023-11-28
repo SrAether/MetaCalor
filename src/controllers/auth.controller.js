@@ -5,9 +5,8 @@ import bcrypt from "bcryptjs"; // para encriptar la contraseña
 
 import { createAccessToken } from "../libs/jwt.js"; // generador de tokens
 
-import { uploadImage, deleteImage } from "../middlewares/cloudinary.js";
-
-import fs from "fs-extra";
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET_KEY } from "../config.js";
 
 export const register = async (req, res) => {
   const {
@@ -21,7 +20,6 @@ export const register = async (req, res) => {
     goal,
     physicalActivityLevel,
     profilePictureUrl,
-    publicPictureId, // dato añadido
     firstName,
     lastName,
     biologicalSex,
@@ -48,22 +46,12 @@ export const register = async (req, res) => {
       streak: 0,
       goal,
       physicalActivityLevel,
-      profilePictureUrl : "",
-      publicPictureId: "",
+      profilePictureUrl,
       firstName,
       lastName,
       biologicalSex,
     });
-
-    if (req.files?.image) {
-      const result = await uploadImage(req.files.tempFilePath);
-      newUser.profilePictureUrl = result.secure_url;
-      newUser.profilePictureId = result.public_id;
-    }
-    //eliminar la imagen
-    await fs.unlink(req.files.image.tempFilePath);
     
-
     const userSaved = await newUser.save(); // guardamos el usuario
 
     // genera una cookie
@@ -138,3 +126,24 @@ export const profile = async (req, res) => {
     biologicalSex: userFound.biologicalSex,
   });
 };
+
+export const verifyToken = async (req, res) => {
+  const {token} = req.cookies;
+
+  if (!token) return res.status(401).json({ message: "No autorizado"});
+
+  jwt.verify(token, TOKEN_SECRET_KEY, async(err, user) => {
+    if (err) return res.status(401).json({ message: "No autorizado"});
+
+    const userFound = await User.findById(user.id)
+    
+    if (!userFound) return res.status(401).json({ message: "No autorizado"});
+
+    return res.json({
+      id: userFound.id,
+      nickname: userFound.nickname,
+      email: userFound.email,
+    });
+
+  })
+}

@@ -1,9 +1,9 @@
 import "./Login.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // charly paso por aqui
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export function Login({ setUser }) {
   const [nombre, setNombre] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +26,11 @@ export function Login({ setUser }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signin, errors: signinErrors } = useAuth();
+  const {isAuthenticated, signin, errors: signinErrors } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuthenticated) navigate("/home");
+  }, [isAuthenticated]);
   const onSubmit = handleSubmit((data) => {
     signin(data);
   });

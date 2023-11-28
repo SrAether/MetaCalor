@@ -44,10 +44,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  publicPictureId:{// public_id
-    type: String,
-    required: true,
-  },
   // _id: {
   //   type: mongoose.Types.ObjectId,
   // },

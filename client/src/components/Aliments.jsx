@@ -1,49 +1,68 @@
 import "./Aliments.css";
+import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
+import { getAlimentosRequest } from "../api/users.js";           //importar alimentos
+
 
 export function Aliments() {
+  const [input, setInput] = useState("");
+  const [filteredResults, setFilteredResults] = useState([]);
+
+  let results;
+  
+  const alimentos = async () => {
+    results = await getAlimentosRequest();      //obtenemos lo alimentos de la funcion
+  console.log(results);
+
+  };
+  alimentos();
+  console.log(results);
+  
+  // const filters = json.filter((alimentos) => {
+    //   return user && user.name &&
+
+  const handleChange = (item) => {
+     setInput(item);
+
+
+     if (searchTerm !== '') {
+      const filteredData = results.data.filter((item) => {
+        return item.Alimento.toLowerCase().includes(searchTerm.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults([]);
+    }
+
+  }
+
   return (
     <div className="containerMain">
-      <h1>Alimentos</h1>
-      <div className="divVariant">
-        <p>Alimentos</p>
-        <div className="variant">
-          <img
-            src="https://waapple.org/wp-content/uploads/2021/06/Variety_Cosmic-Crisp-transparent-658x677.png"
-            alt="Imagen de manzana"
-            className="variantImg"
-          />
-          <p>Manzana</p>
-          <button className="buttonAddAliments">+</button>
-        </div>
-        <div className="variant">
-          <img
-            src="https://lagranbodega.vteximg.com.br/arquivos/ids/204256-600-600/58AFYV148_1.jpg?v=636790598591370000"
-            alt="Imagen de pepino"
-            className="variantImg"
-          />
-          <p>Pepino</p>
-          <button className="buttonAddAliments">+</button>
-        </div>
-        <div className="variant">
-          <img
-            src="https://lahojuela.mx/cdn/shop/products/0BA14E33-8E78-4292-9B2A-8F81CF35B202_640x.png?v=1569070307"
-            alt="Imagen de frijol"
-            className="variantImg"
-          />
-          <p>Frijol Crudo</p>
-          <button className="buttonAddAliments">+</button>
-        </div>
-        <div className="variant">
-          <img
-            src="https://www.aweta.com/images/produces/overzicht/aweta-product-mango.png"
-            alt="Imagen de mango"
-            className="variantImg"
-          />
-          <p>Mango</p>
-          <button className="buttonAddAliments">+</button>
-        </div>
-        <button className="buttonRegisterAliments">Registrar</button>
+      <div className="containerMaine">
+        <FaSearch id="search-icon"/>
+        <input
+        type="text" 
+        placeholder="Type to search..." 
+        value={input} 
+        onChange={(e) => handleChange(e.target.value)}
+        />
+        
       </div>
-    </div>
+      
+      <div className="results-list">
+        <div>aasdasdad</div>
+        <div>asdasd</div>
+        <div>asdasdasd</div>
+        {filteredResults.map((item, index) => (
+          <div key={index}>{item.Alimento}</div>
+        ))}
+      </div>
+
+
+      <div>
+        
+      </div>
+    
+    </div>  
   );
 }

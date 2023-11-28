@@ -14,6 +14,7 @@ export function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(isAuthenticated);
     if (isAuthenticated) navigate("/home");
   }, [isAuthenticated]);
 
@@ -30,7 +31,6 @@ export function Register() {
       biologicalSex,
       nickname,
       profilePictureUrl,
-      publicPictureId,
       physicalActivityLevel,
     } = values;
     const VALUES = {
@@ -45,7 +45,6 @@ export function Register() {
       biologicalSex,
       nickname,
       profilePictureUrl,
-      publicPictureId,
       physicalActivityLevel: parseInt(physicalActivityLevel, 10),
     };
     signup(VALUES);
@@ -191,30 +190,25 @@ export function Register() {
           <p className="subtittleData">
             FOTO DE PEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEFIL
           </p>
-          <input
-            type="file"
-            className="inputData"
-            placeholder="Tu foto"
-            accept="image/*"
-            {...register("profilePictureUrl", { required: true })}
-          />
+          <div className="contenedorInador">
+          <label >
+            <input type="radio" name="imagen" value="https://res.cloudinary.com/dbyz6npup/image/upload/v1701120386/avatars/f739f457-5a12-400f-8a25-c08fb31f3ddd_oi6buo.jpg" {...register("profilePictureUrl", { required: true })}/>
+            <img className="imagen" alt="imagen1" src="https://res.cloudinary.com/dbyz6npup/image/upload/v1701120386/avatars/f739f457-5a12-400f-8a25-c08fb31f3ddd_oi6buo.jpg" />
+          </label>
+          <label >
+            <input type="radio" name="imagen" value="https://res.cloudinary.com/dbyz6npup/image/upload/v1701120396/avatars/baadc46e-b397-4c9e-86f5-1b4b78f864e8_wbah5g.jpg" {...register("profilePictureUrl", { required: true })}/>
+            <img className="imagen" alt="imagen2" src="https://res.cloudinary.com/dbyz6npup/image/upload/v1701120396/avatars/baadc46e-b397-4c9e-86f5-1b4b78f864e8_wbah5g.jpg" />
+          </label>
+          <label >
+            <input type="radio" name="imagen" value="https://res.cloudinary.com/dbyz6npup/image/upload/v1701120393/avatars/7348953d-c01d-4cad-84df-673052151bff_nfmphf.jpg" {...register("profilePictureUrl", { required: true })}/>
+            <img className="imagen" alt="imagen3" src="https://res.cloudinary.com/dbyz6npup/image/upload/v1701120393/avatars/7348953d-c01d-4cad-84df-673052151bff_nfmphf.jpg" />
+          </label>
           {
             errors.profilePictureUrl && (
               <p>La foto de perfil de usuario es requerida</p>
             )
           }
-          <input
-            type="file"
-            className="inputData"
-            placeholder="Tu foto"
-            accept="image/*"
-            {...register("publicPictureId", { required: true })}
-          />
-          {
-            errors.publicPictureId && (
-              <p>La foto de perfil de usuario es requerida</p>
-            )
-          }
+          </div>
           <p className="subtittleData">Nivel de Actividad Fisica</p>
           <select
             {...register("physicalActivityLevel", { required: true })}

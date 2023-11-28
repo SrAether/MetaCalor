@@ -1,8 +1,32 @@
-import "./Home.css";
+import "./Home.css"; //estilos
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { logout } from "../api/auth";
+import { getProfileRequest } from "../api/auth";
 
-export function Home({ user, setUser }) {
+import { useEffect } from "react";
+import { KcalConsumRequest } from "../api/auth";
+//import { useUserData } from "../context/UserContext";
+
+export function Home() {
+  const navigate = useNavigate();
+  const { user, userInformation, getKcal } = useAuth();
+  if (!user.age) userInformation();
+  // Convertir el objeto a una cadena JSON
+  //let json = JSON.stringify(dato);
+  if (!user.sumaEnergiaKcal) 
+    getKcal(user.id);
+    console.log(user);
+  //console.log(typeof user.id); SI ES STRING
+
+  //Agregado despues del UserContext
+  //  const {user} = useUserData();
+  //  console.log(user);
+
   const handleLogOut = () => {
-    setUser([]);
+    logout(); //eliminar la cookie del usuario para salir de la sesion
+    navigate("/"); //regresar a la pagina principal(login)
+    window.location.reload(); //refrescar la pagina
   };
 
   return (
@@ -10,28 +34,32 @@ export function Home({ user, setUser }) {
       <div className="insideContainerMain">
         <div className="tittles">
           <h1>Bienvenido</h1>
-          <h2>¡Hola {user}!</h2>
+          <h2>¡Hola {user.nickname} !</h2>
         </div>
         <div className="goals">
           <p>Meta</p>
           <div className="divMainGoal">
-            <p>Aqui van las kcal meta</p>
+            <p>{user.goal} </p>
           </div>
           <p>Kcal consumidas</p>
           <div className="divKcalConsumidas">
-            <p>Aqui van las calorias consumidas</p>
+            <p>{user.sumaEnergiaKcal}</p>
           </div>
-          <h3>¡Alerta de exceso de kcal!(En caso de haberlo)</h3>
+          {
+            user.sumaEnergiaKcal > user.goal &&
+            <h3>¡Alerta de exceso de kcal!</h3>
+          }
+          
           <p>Racha actual</p>
           <div className="divRachaActual">
-            <p>Dias de racha</p>
+            <p> {user.streak} </p>
           </div>
         </div>
         <button className="contactToProffesionals">
-          Contacta con un profesional
+          <Link to="/nutriologos">Contacta con un profesional</Link>
         </button>
         <button className="buttonLogOut" onClick={handleLogOut}>
-          Cerrar Sesion
+          CERRAR SESION
         </button>
       </div>
     </div>

@@ -32,9 +32,6 @@ export const registerSchema = z.object({
   profilePictureUrl: z.string({
     required_error: "La foto de perfil es requerida",
   }),
-  publicPictureId: z.string({
-    required_error: "La foto de perfil es requerida",
-  }),
   firstName: z.string({
     required_error: "El nombre es obligatorio",
   }),

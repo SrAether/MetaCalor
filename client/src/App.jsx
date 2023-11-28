@@ -6,6 +6,7 @@ import { RecovePass } from "./components/RecovePass";
 import { useState } from "react";
 
 import { AuthProvider } from "./context/AuthContext";
+import { UserProvider } from "./context/UserContext";
 
 import "./App.css";
 import { Aliments } from "./components/Aliments";
@@ -17,12 +18,15 @@ import { Nutriologos } from "./components/Nutriologos";
 import { Platillo } from "./components/Platillo";
 import { Settings } from "./components/Settings";
 
+import ProtectedRoute from "./ProtectedRoute";
+
 function App() {
   const [user, setUser] = useState([]);
 
   return (
     <div className="App">
       <AuthProvider>
+        <UserProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login setUser={setUser} />} />
@@ -30,19 +34,20 @@ function App() {
             <Route path="/login" element={<Login setUser={setUser} />} />
 
             {/* Rutas a las que solo se puede acceder estando log */}
-            <Route >
+            <Route element={<ProtectedRoute/>}>
               <Route path="/home" element={<Home />} />
               <Route path="/aliments" element={<Aliments />} />
               <Route path="/registrocalorias" element={<CaloriesRegister />} />
               <Route path="/globalrank" element={<GlobalRank />} />
               <Route path="/kcalspend" element={<KcalSpend />} />
               <Route path="/makedish" element={<MakeDish />} />
-              <Route path="/nutriologs" element={<Nutriologos />} />
+              <Route path="/nutriologos" element={<Nutriologos />} />
               <Route path="/platillo" element={<Platillo />} />
               <Route path="/settings" element={<Settings />} />
             </Route>
           </Routes>
         </BrowserRouter>
+        </UserProvider>
       </AuthProvider>
     </div>
   );
