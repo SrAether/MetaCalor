@@ -18,6 +18,8 @@ import { Nutriologos } from "./components/Nutriologos";
 import { Platillo } from "./components/Platillo";
 import { Settings } from "./components/Settings";
 
+import Navbar from "./components/Navbar";
+
 import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
       <AuthProvider>
         <UserProvider>
         <BrowserRouter>
+        <Navbar />
           <Routes>
             <Route path="/" element={<Login setUser={setUser} />} />
             <Route path="/register" element={<Register />} />

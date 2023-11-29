@@ -76,8 +76,8 @@ export function Login({ setUser }) {
           )}
         </div>
         <div className="opcionesExtra">
-          <p>¿Se te olvidó tu contraseña?</p>
-          <button>Recuperar contraseña</button>
+          {/* <p>¿Se te olvidó tu contraseña?</p>
+          <button>Recuperar contraseña</button> */}
           <p>¿Aún no tienes cuenta?</p>
           <button>
             <Link to="/register">Registrarte</Link>
