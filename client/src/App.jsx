@@ -30,13 +30,14 @@ function App() {
       <AuthProvider>
         <UserProvider>
         <BrowserRouter>
-        <Navbar />
+        
           <Routes>
             <Route path="/" element={<Login setUser={setUser} />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login setUser={setUser} />} />
 
             {/* Rutas a las que solo se puede acceder estando log */}
+            
             <Route element={<ProtectedRoute/>}>
               <Route path="/home" element={<Home />} />
               <Route path="/aliments" element={<Aliments />} />

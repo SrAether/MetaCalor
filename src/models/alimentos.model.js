@@ -16,3 +16,4 @@ const alimentoSchema = new mongoose.Schema({
 
 // Crear el modelo
 export default mongoose.model("Alimento", alimentoSchema);
+i

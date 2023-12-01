@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const registerSchema = z.object({
-  email: z.string({
+  email: z.string().email({
     required_error: "El correo de usuario es necesario",
   }),
   password: 
